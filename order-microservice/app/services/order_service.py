@@ -42,10 +42,17 @@ class OrderService:
         self.inventory_service = InventoryService(base_url=os.getenv("INVENTORY_BASE_URL", "http://localhost:8001"))
 
     async def create_order(self, order_data: OrderCreate) -> Order:
-        if not await self.inventory_service.check_stock(order_data.product_id, order_data.quantity):
-            raise Exception("Insufficient inventory")
-        await self.inventory_service.reduce_stock(order_data.product_id, order_data.quantity)
-        return self.repo.create_order(order_data)
+        print("create_order called with:", order_data)
+        try:
+            if not await self.inventory_service.check_stock(order_data.product_id, order_data.quantity):
+                raise Exception("Insufficient inventory")
+            await self.inventory_service.reduce_stock(order_data.product_id, order_data.quantity)
+            new_order = self.repo.create_order(order_data)
+            print("Order created:", new_order)
+            return new_order
+        except Exception as e:
+            print("Error in OrderService.create_order:", e)
+            raise
 
     def list_orders(self):
         return self.repo.list_orders()

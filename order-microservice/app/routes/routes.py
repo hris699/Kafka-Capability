@@ -13,6 +13,7 @@ async def create_order(order: OrderCreate, db: Session = Depends(get_db)):
         db_order = await service.create_order(order)
         return db_order
     except Exception as e:
+        print("Error in create_order:", e)  # Add this line
         raise HTTPException(status_code=400, detail=str(e))
 
 @router.get("/orders/", response_model=list[OrderRead])

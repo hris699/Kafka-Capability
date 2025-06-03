@@ -3,4 +3,4 @@ uvicorn
 sqlalchemy
 pydantic
 httpx
-mysql-connector-python
+pymysql
