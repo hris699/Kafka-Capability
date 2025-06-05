@@ -1,0 +1,7 @@
+# vurtual env
+uvenv
+pvenv 
+
+# Python cache
+__pycache__
+
