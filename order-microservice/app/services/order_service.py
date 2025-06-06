@@ -137,3 +137,10 @@ class OrderService:
         except Exception as e:
             logging.error(f"Error in OrderService.delete_order: {e}")
             raise
+
+    def get_orders_by_user_id(self, user_id: int):
+        try:
+            return self.repo.get_orders_by_user_id(user_id)
+        except Exception as e:
+            logging.error(f"Error in OrderService.get_orders_by_user_id: {e}")
+            raise

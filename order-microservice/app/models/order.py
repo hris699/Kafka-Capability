@@ -16,3 +16,4 @@ class Order(Base):
     product_id = Column(String(100), index=True)  
     quantity = Column(Integer)
     status = Column(Enum(OrderStatus), default=OrderStatus.pending)
+    user_id = Column(Integer, index=True)

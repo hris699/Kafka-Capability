@@ -78,3 +78,12 @@ class OrderRepository:
             logging.error(f"OrderRepository: Error deleting order {order_id}: {e}")
             self.db.rollback()
             raise
+
+    def get_orders_by_user_id(self, user_id: int):
+        try:
+            orders = self.db.query(Order).filter(Order.user_id == user_id).all()
+            logging.info(f"Fetched {len(orders)} orders for user {user_id}")
+            return orders
+        except Exception as e:
+            logging.error(f"Error fetching orders for user {user_id}: {e}")
+            raise

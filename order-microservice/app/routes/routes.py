@@ -57,3 +57,12 @@ async def delete_order(order_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Order not found")
     logging.info(f"Order deleted: {order_id}")
     return {"detail": "Order deleted"}
+
+@router.get("/orders/user/{user_id}", response_model=list[OrderRead])
+def get_orders_by_user(user_id: int, db: Session = Depends(get_db)):
+    service = OrderService(db)
+    try:
+        return service.get_orders_by_user_id(user_id)
+    except Exception as e:
+        logging.error(f"Error fetching orders for user {user_id}: {e}")
+        raise HTTPException(status_code=400, detail=str(e))
