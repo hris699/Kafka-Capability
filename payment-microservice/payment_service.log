@@ -1,0 +1,556 @@
+2025-06-07 11:56:08,217 - app.main - INFO - Payment Service is starting up...
+2025-06-07 11:58:24,862 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 11:58:42,295 - app.main - INFO - Payment Service is starting up...
+2025-06-07 11:58:50,418 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 12:06:26,294 - uvicorn.error - INFO - Started server process [17444]
+2025-06-07 12:06:26,295 - uvicorn.error - INFO - Waiting for application startup.
+2025-06-07 12:06:26,296 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:06:26,297 - uvicorn.error - INFO - Application startup complete.
+2025-06-07 12:08:17,645 - app.routes.payment - INFO - Creating new payment for order 1101217
+2025-06-07 12:08:18,132 - app.routes.payment - ERROR - Error creating payment: (sqlite3.OperationalError) no such table: payments
+[SQL: INSERT INTO payments (order_id, amount, card_number, card_holder_name, expiry_date, hashed_cvv, status, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (1101217, 69.0, '1234567898765432', 'Prakhar', '11/35', '$2b$12$Zt.L2BvOT5ei5eGEdRvkXuxzRtsxLzo6S/FLvsyYiEIJLMb5hhJ0u', 'PENDING', None)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2025-06-07 12:09:37,751 - app.main - INFO - Database tables created successfully
+2025-06-07 12:09:37,801 - uvicorn.error - INFO - Started server process [2996]
+2025-06-07 12:09:37,802 - uvicorn.error - INFO - Waiting for application startup.
+2025-06-07 12:09:37,804 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:09:37,805 - uvicorn.error - INFO - Application startup complete.
+2025-06-07 12:11:26,195 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:11:26,197 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-06-07 12:11:26,198 - app.main - INFO - Database tables created successfully
+2025-06-07 12:11:26,268 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:12:43,595 - app.routes.payment - INFO - Creating new payment for order 1
+2025-06-07 12:12:43,927 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:12:43,930 - sqlalchemy.engine.Engine - INFO - INSERT INTO payments (order_id, amount, card_number, card_holder_name, expiry_date, hashed_cvv, status, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, created_at
+2025-06-07 12:12:43,931 - sqlalchemy.engine.Engine - INFO - [generated in 0.00075s] (1, 100.5, '1234567890123456', 'John Doe', '12/25', '$2b$12$/ZL//fsQbjZsNoGPHvQhJOG0sf62oEg1.UBDIaYzf6FOwAb7qa8Te', 'PENDING', None)
+2025-06-07 12:12:43,942 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-06-07 12:12:43,945 - app.routes.payment - ERROR - Error creating payment: (sqlite3.OperationalError) no such table: payments
+[SQL: INSERT INTO payments (order_id, amount, card_number, card_holder_name, expiry_date, hashed_cvv, status, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, created_at]
+[parameters: (1, 100.5, '1234567890123456', 'John Doe', '12/25', '$2b$12$/ZL//fsQbjZsNoGPHvQhJOG0sf62oEg1.UBDIaYzf6FOwAb7qa8Te', 'PENDING', None)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-07 12:12:43,947 - app.database - ERROR - Database session error: 500: Failed to create payment
+2025-06-07 12:13:02,466 - app.routes.payment - INFO - Creating new payment for order 1
+2025-06-07 12:13:02,775 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:13:02,778 - sqlalchemy.engine.Engine - INFO - INSERT INTO payments (order_id, amount, card_number, card_holder_name, expiry_date, hashed_cvv, status, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, created_at
+2025-06-07 12:13:02,779 - sqlalchemy.engine.Engine - INFO - [cached since 18.85s ago] (1, 100.5, '1234567890123456', 'John Doe', '12/25', '$2b$12$rSrlTFgabKUzi/xM3LiZPeS8lviAIOVYgqPyMbpC6ETv.PXB/2Qay', 'PENDING', None)
+2025-06-07 12:13:02,780 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-06-07 12:13:02,781 - app.routes.payment - ERROR - Error creating payment: (sqlite3.OperationalError) no such table: payments
+[SQL: INSERT INTO payments (order_id, amount, card_number, card_holder_name, expiry_date, hashed_cvv, status, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, created_at]
+[parameters: (1, 100.5, '1234567890123456', 'John Doe', '12/25', '$2b$12$rSrlTFgabKUzi/xM3LiZPeS8lviAIOVYgqPyMbpC6ETv.PXB/2Qay', 'PENDING', None)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-07 12:13:02,782 - app.database - ERROR - Database session error: 500: Failed to create payment
+2025-06-07 12:13:18,088 - app.routes.payment - INFO - Fetching payment with ID 1
+2025-06-07 12:13:18,096 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:13:18,115 - sqlalchemy.engine.Engine - INFO - SELECT payments.id AS payments_id, payments.order_id AS payments_order_id, payments.amount AS payments_amount, payments.card_number AS payments_card_number, payments.card_holder_name AS payments_card_holder_name, payments.expiry_date AS payments_expiry_date, payments.hashed_cvv AS payments_hashed_cvv, payments.status AS payments_status, payments.created_at AS payments_created_at, payments.updated_at AS payments_updated_at 
+FROM payments 
+WHERE payments.id = ?
+ LIMIT ? OFFSET ?
+2025-06-07 12:13:18,124 - sqlalchemy.engine.Engine - INFO - [generated in 0.00814s] (1, 1, 0)
+2025-06-07 12:13:18,131 - app.routes.payment - ERROR - Error fetching payment: (sqlite3.OperationalError) no such table: payments
+[SQL: SELECT payments.id AS payments_id, payments.order_id AS payments_order_id, payments.amount AS payments_amount, payments.card_number AS payments_card_number, payments.card_holder_name AS payments_card_holder_name, payments.expiry_date AS payments_expiry_date, payments.hashed_cvv AS payments_hashed_cvv, payments.status AS payments_status, payments.created_at AS payments_created_at, payments.updated_at AS payments_updated_at 
+FROM payments 
+WHERE payments.id = ?
+ LIMIT ? OFFSET ?]
+[parameters: (1, 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-07 12:13:18,138 - app.database - ERROR - Database session error: 500: Failed to fetch payment
+2025-06-07 12:13:18,139 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-06-07 12:13:46,184 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 12:15:04,868 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:15:04,869 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("payments")
+2025-06-07 12:15:04,871 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-06-07 12:15:04,882 - sqlalchemy.engine.Engine - INFO - PRAGMA temp.table_info("payments")
+2025-06-07 12:15:04,884 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-06-07 12:15:04,891 - sqlalchemy.engine.Engine - INFO - 
+CREATE TABLE payments (
+	id INTEGER NOT NULL, 
+	order_id INTEGER, 
+	amount FLOAT, 
+	card_number VARCHAR(16), 
+	card_holder_name VARCHAR(100), 
+	expiry_date VARCHAR(5), 
+	hashed_cvv VARCHAR(60), 
+	status VARCHAR(10), 
+	created_at DATETIME DEFAULT CURRENT_TIMESTAMP, 
+	updated_at DATETIME, 
+	PRIMARY KEY (id)
+)
+
+
+2025-06-07 12:15:04,905 - sqlalchemy.engine.Engine - INFO - [no key 0.01327s] ()
+2025-06-07 12:15:04,921 - sqlalchemy.engine.Engine - INFO - CREATE INDEX ix_payments_id ON payments (id)
+2025-06-07 12:15:04,924 - sqlalchemy.engine.Engine - INFO - [no key 0.00347s] ()
+2025-06-07 12:15:04,936 - sqlalchemy.engine.Engine - INFO - CREATE INDEX ix_payments_order_id ON payments (order_id)
+2025-06-07 12:15:04,938 - sqlalchemy.engine.Engine - INFO - [no key 0.00251s] ()
+2025-06-07 12:15:04,964 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-06-07 12:15:04,970 - app.database - INFO - Database tables created successfully
+2025-06-07 12:15:05,040 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:17:30,838 - app.routes.payment - INFO - Creating new payment for order 1101
+2025-06-07 12:17:31,256 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:17:31,284 - sqlalchemy.engine.Engine - INFO - INSERT INTO payments (order_id, amount, card_number, card_holder_name, expiry_date, hashed_cvv, status, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, created_at
+2025-06-07 12:17:31,286 - sqlalchemy.engine.Engine - INFO - [generated in 0.00608s] (1101, 200.0, '1234567898765432', 'test', '11/35', '$2b$12$S4TqrlOzQ2xgMklRUAY23.daQyv4Z7JDU.9WaUk0wge0E/0yX3tum', 'PENDING', None)
+2025-06-07 12:17:31,317 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-06-07 12:17:31,350 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:17:31,369 - sqlalchemy.engine.Engine - INFO - SELECT payments.id, payments.order_id, payments.amount, payments.card_number, payments.card_holder_name, payments.expiry_date, payments.hashed_cvv, payments.status, payments.created_at, payments.updated_at 
+FROM payments 
+WHERE payments.id = ?
+2025-06-07 12:17:31,386 - sqlalchemy.engine.Engine - INFO - [generated in 0.01594s] (1,)
+2025-06-07 12:17:31,436 - app.routes.payment - INFO - Successfully created payment with ID 1
+2025-06-07 12:17:31,487 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-06-07 12:18:30,471 - app.routes.payment - INFO - Updating payment with ID 1
+2025-06-07 12:18:30,484 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:18:30,499 - sqlalchemy.engine.Engine - INFO - SELECT payments.id AS payments_id, payments.order_id AS payments_order_id, payments.amount AS payments_amount, payments.card_number AS payments_card_number, payments.card_holder_name AS payments_card_holder_name, payments.expiry_date AS payments_expiry_date, payments.hashed_cvv AS payments_hashed_cvv, payments.status AS payments_status, payments.created_at AS payments_created_at, payments.updated_at AS payments_updated_at 
+FROM payments 
+WHERE payments.id = ?
+ LIMIT ? OFFSET ?
+2025-06-07 12:18:30,505 - sqlalchemy.engine.Engine - INFO - [generated in 0.00808s] (1, 1, 0)
+2025-06-07 12:18:30,868 - sqlalchemy.engine.Engine - INFO - UPDATE payments SET order_id=?, amount=?, card_number=?, card_holder_name=?, expiry_date=?, hashed_cvv=?, updated_at=CURRENT_TIMESTAMP WHERE payments.id = ?
+2025-06-07 12:18:30,869 - sqlalchemy.engine.Engine - INFO - [generated in 0.00159s] (0, 0.0, 'stringstringstri', 'string', 'strin', '$2b$12$fG4fFEwVwoY5wIYUXEhwcOdXeg6k/YXZ71BVQQezhPOGrfTplZ.DC', 1)
+2025-06-07 12:18:30,874 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-06-07 12:18:30,887 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:18:30,889 - sqlalchemy.engine.Engine - INFO - SELECT payments.id, payments.order_id, payments.amount, payments.card_number, payments.card_holder_name, payments.expiry_date, payments.hashed_cvv, payments.status, payments.created_at, payments.updated_at 
+FROM payments 
+WHERE payments.id = ?
+2025-06-07 12:18:30,900 - sqlalchemy.engine.Engine - INFO - [cached since 59.53s ago] (1,)
+2025-06-07 12:18:30,902 - app.routes.payment - INFO - Successfully updated payment with ID 1
+2025-06-07 12:18:30,904 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-06-07 12:20:12,071 - app.routes.payment - INFO - Creating new payment for order 1101
+2025-06-07 12:20:12,459 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:20:12,469 - sqlalchemy.engine.Engine - INFO - INSERT INTO payments (order_id, amount, card_number, card_holder_name, expiry_date, hashed_cvv, status, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, created_at
+2025-06-07 12:20:12,471 - sqlalchemy.engine.Engine - INFO - [cached since 161.2s ago] (1101, 200.0, '1234567898765432', 'test', '11/35', '$2b$12$BcU53AereZUvZLRUvmbfG.waXzk/10fJ81F2kM5QBYfZg527M6y1m', 'PENDING', None)
+2025-06-07 12:20:12,490 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-06-07 12:20:12,516 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:20:12,520 - sqlalchemy.engine.Engine - INFO - SELECT payments.id, payments.order_id, payments.amount, payments.card_number, payments.card_holder_name, payments.expiry_date, payments.hashed_cvv, payments.status, payments.created_at, payments.updated_at 
+FROM payments 
+WHERE payments.id = ?
+2025-06-07 12:20:12,523 - sqlalchemy.engine.Engine - INFO - [cached since 161.2s ago] (2,)
+2025-06-07 12:20:12,529 - app.routes.payment - INFO - Successfully created payment with ID 2
+2025-06-07 12:20:12,538 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-06-07 12:21:28,842 - app.routes.payment - INFO - Creating new payment for order 1
+2025-06-07 12:21:29,175 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:21:29,178 - sqlalchemy.engine.Engine - INFO - INSERT INTO payments (order_id, amount, card_number, card_holder_name, expiry_date, hashed_cvv, status, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING id, created_at
+2025-06-07 12:21:29,180 - sqlalchemy.engine.Engine - INFO - [cached since 237.9s ago] (1, 100.5, '1234567890123456', 'John Doe', '12/25', '$2b$12$sn2mLHtifmsjyoNT26J28O6QG53UIaxKvBQ/hdzqaLyeEG0kjZ/zG', 'PENDING', None)
+2025-06-07 12:21:29,184 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-06-07 12:21:29,198 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:21:29,201 - sqlalchemy.engine.Engine - INFO - SELECT payments.id, payments.order_id, payments.amount, payments.card_number, payments.card_holder_name, payments.expiry_date, payments.hashed_cvv, payments.status, payments.created_at, payments.updated_at 
+FROM payments 
+WHERE payments.id = ?
+2025-06-07 12:21:29,212 - sqlalchemy.engine.Engine - INFO - [cached since 237.8s ago] (3,)
+2025-06-07 12:21:29,216 - app.routes.payment - INFO - Successfully created payment with ID 3
+2025-06-07 12:21:29,217 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-06-07 12:21:38,717 - app.routes.payment - INFO - Fetching payment with ID 3
+2025-06-07 12:21:38,724 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:21:38,727 - sqlalchemy.engine.Engine - INFO - SELECT payments.id AS payments_id, payments.order_id AS payments_order_id, payments.amount AS payments_amount, payments.card_number AS payments_card_number, payments.card_holder_name AS payments_card_holder_name, payments.expiry_date AS payments_expiry_date, payments.hashed_cvv AS payments_hashed_cvv, payments.status AS payments_status, payments.created_at AS payments_created_at, payments.updated_at AS payments_updated_at 
+FROM payments 
+WHERE payments.id = ?
+ LIMIT ? OFFSET ?
+2025-06-07 12:21:38,740 - sqlalchemy.engine.Engine - INFO - [cached since 188.2s ago] (3, 1, 0)
+2025-06-07 12:21:38,757 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-06-07 12:21:47,674 - app.routes.payment - INFO - Fetching payments for order 1
+2025-06-07 12:21:47,676 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:21:47,689 - sqlalchemy.engine.Engine - INFO - SELECT payments.id AS payments_id, payments.order_id AS payments_order_id, payments.amount AS payments_amount, payments.card_number AS payments_card_number, payments.card_holder_name AS payments_card_holder_name, payments.expiry_date AS payments_expiry_date, payments.hashed_cvv AS payments_hashed_cvv, payments.status AS payments_status, payments.created_at AS payments_created_at, payments.updated_at AS payments_updated_at 
+FROM payments 
+WHERE payments.order_id = ?
+2025-06-07 12:21:47,696 - sqlalchemy.engine.Engine - INFO - [generated in 0.00682s] (1,)
+2025-06-07 12:21:47,706 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-06-07 12:22:15,071 - app.routes.payment - INFO - Fetching payment with ID 1
+2025-06-07 12:22:15,077 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:22:15,084 - sqlalchemy.engine.Engine - INFO - SELECT payments.id AS payments_id, payments.order_id AS payments_order_id, payments.amount AS payments_amount, payments.card_number AS payments_card_number, payments.card_holder_name AS payments_card_holder_name, payments.expiry_date AS payments_expiry_date, payments.hashed_cvv AS payments_hashed_cvv, payments.status AS payments_status, payments.created_at AS payments_created_at, payments.updated_at AS payments_updated_at 
+FROM payments 
+WHERE payments.id = ?
+ LIMIT ? OFFSET ?
+2025-06-07 12:22:15,089 - sqlalchemy.engine.Engine - INFO - [cached since 224.6s ago] (1, 1, 0)
+2025-06-07 12:22:15,094 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-06-07 12:23:24,826 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 12:23:35,002 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-06-07 12:23:35,003 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-06-07 12:23:35,008 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-06-07 12:23:35,010 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-06-07 12:23:35,019 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-06-07 12:23:35,020 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-06-07 12:23:35,024 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:23:35,025 - sqlalchemy.engine.Engine - INFO - DESCRIBE `payment_service_db`.`payments`
+2025-06-07 12:23:35,026 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-06-07 12:23:35,059 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-06-07 12:23:35,062 - app.database - INFO - Database tables created successfully
+2025-06-07 12:23:35,090 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:23:49,215 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 12:25:32,037 - sqlalchemy.engine.Engine - INFO - SHOW VARIABLES LIKE 'sql_mode'
+2025-06-07 12:25:32,038 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-06-07 12:25:32,048 - sqlalchemy.engine.Engine - INFO - SHOW VARIABLES LIKE 'lower_case_table_names'
+2025-06-07 12:25:32,049 - sqlalchemy.engine.Engine - INFO - [generated in 0.00101s] {}
+2025-06-07 12:25:32,053 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-06-07 12:25:32,054 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-06-07 12:25:32,056 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:25:32,057 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = %(table_schema)s AND table_name = %(table_name)s
+2025-06-07 12:25:32,058 - sqlalchemy.engine.Engine - INFO - [generated in 0.00069s] {'table_schema': 'payment_service_db', 'table_name': 'payments'}
+2025-06-07 12:25:32,066 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-06-07 12:25:32,067 - app.database - INFO - Database tables created successfully
+2025-06-07 12:25:32,100 - uvicorn.error - INFO - Started server process [28104]
+2025-06-07 12:25:32,101 - uvicorn.error - INFO - Waiting for application startup.
+2025-06-07 12:25:32,102 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:25:32,103 - uvicorn.error - INFO - Application startup complete.
+2025-06-07 12:27:25,054 - sqlalchemy.engine.Engine - INFO - SHOW VARIABLES LIKE 'sql_mode'
+2025-06-07 12:27:25,056 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-06-07 12:27:25,071 - sqlalchemy.engine.Engine - INFO - SHOW VARIABLES LIKE 'lower_case_table_names'
+2025-06-07 12:27:25,073 - sqlalchemy.engine.Engine - INFO - [generated in 0.00180s] {}
+2025-06-07 12:27:25,084 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-06-07 12:27:25,089 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-06-07 12:27:25,093 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:27:25,098 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = %(table_schema)s AND table_name = %(table_name)s
+2025-06-07 12:27:25,103 - sqlalchemy.engine.Engine - INFO - [generated in 0.00464s] {'table_schema': 'payment_service_db', 'table_name': 'payments'}
+2025-06-07 12:27:25,142 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-06-07 12:27:25,147 - app.database - INFO - Database tables created successfully
+2025-06-07 12:27:25,177 - uvicorn.error - INFO - Started server process [16396]
+2025-06-07 12:27:25,178 - uvicorn.error - INFO - Waiting for application startup.
+2025-06-07 12:27:25,182 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:27:25,184 - uvicorn.error - INFO - Application startup complete.
+2025-06-07 12:33:12,511 - sqlalchemy.engine.Engine - INFO - SHOW VARIABLES LIKE 'sql_mode'
+2025-06-07 12:33:12,512 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-06-07 12:33:12,522 - sqlalchemy.engine.Engine - INFO - SHOW VARIABLES LIKE 'lower_case_table_names'
+2025-06-07 12:33:12,524 - sqlalchemy.engine.Engine - INFO - [generated in 0.00107s] {}
+2025-06-07 12:33:12,533 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-06-07 12:33:12,534 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2025-06-07 12:33:12,541 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:33:12,544 - sqlalchemy.engine.Engine - INFO - SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = %(table_schema)s AND table_name = %(table_name)s
+2025-06-07 12:33:12,545 - sqlalchemy.engine.Engine - INFO - [generated in 0.00090s] {'table_schema': 'payment_service_db', 'table_name': 'payments'}
+2025-06-07 12:33:12,574 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-06-07 12:33:12,577 - app.database - INFO - Database tables created successfully
+2025-06-07 12:33:12,597 - uvicorn.error - INFO - Started server process [12128]
+2025-06-07 12:33:12,598 - uvicorn.error - INFO - Waiting for application startup.
+2025-06-07 12:33:12,599 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:33:12,601 - uvicorn.error - INFO - Application startup complete.
+2025-06-07 12:35:45,713 - app.routes.payment - INFO - Creating new payment for order 1111
+2025-06-07 12:35:46,014 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-06-07 12:35:46,018 - sqlalchemy.engine.Engine - INFO - INSERT INTO payments (order_id, amount, card_number, card_holder_name, expiry_date, hashed_cvv, `status`, updated_at) VALUES (%(order_id)s, %(amount)s, %(card_number)s, %(card_holder_name)s, %(expiry_date)s, %(hashed_cvv)s, %(status)s, %(updated_at)s)
+2025-06-07 12:35:46,019 - sqlalchemy.engine.Engine - INFO - [generated in 0.00124s] {'order_id': 1111, 'amount': 1111.0, 'card_number': '1234567899876543', 'card_holder_name': 'letitbex', 'expiry_date': '11/35', 'hashed_cvv': '$2b$12$jSD1FOLdd825HFuVlVB3oOh46Tk.Muewh83j5fFXkoOUoEH/ExDA.', 'status': 'PENDING', 'updated_at': None}
+2025-06-07 12:35:46,029 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-06-07 12:35:46,031 - app.routes.payment - ERROR - Error creating payment: (pymysql.err.OperationalError) (1054, "Unknown column 'hashed_cvv' in 'field list'")
+[SQL: INSERT INTO payments (order_id, amount, card_number, card_holder_name, expiry_date, hashed_cvv, `status`, updated_at) VALUES (%(order_id)s, %(amount)s, %(card_number)s, %(card_holder_name)s, %(expiry_date)s, %(hashed_cvv)s, %(status)s, %(updated_at)s)]
+[parameters: {'order_id': 1111, 'amount': 1111.0, 'card_number': '1234567899876543', 'card_holder_name': 'letitbex', 'expiry_date': '11/35', 'hashed_cvv': '$2b$12$jSD1FOLdd825HFuVlVB3oOh46Tk.Muewh83j5fFXkoOUoEH/ExDA.', 'status': 'PENDING', 'updated_at': None}]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2025-06-07 12:38:34,375 - uvicorn.error - INFO - Started server process [19968]
+2025-06-07 12:38:34,380 - uvicorn.error - INFO - Waiting for application startup.
+2025-06-07 12:38:34,397 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:38:34,407 - uvicorn.error - INFO - Application startup complete.
+2025-06-07 12:38:45,705 - uvicorn.error - INFO - Started server process [20424]
+2025-06-07 12:38:45,716 - uvicorn.error - INFO - Waiting for application startup.
+2025-06-07 12:38:45,726 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:38:45,737 - uvicorn.error - INFO - Application startup complete.
+2025-06-07 12:38:56,483 - uvicorn.error - INFO - Started server process [13288]
+2025-06-07 12:38:56,487 - uvicorn.error - INFO - Waiting for application startup.
+2025-06-07 12:38:56,506 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:38:56,518 - uvicorn.error - INFO - Application startup complete.
+2025-06-07 12:40:33,132 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:41:36,846 - app.routes.payment - INFO - Creating new payment for order 123
+2025-06-07 12:41:36,937 - app.routes.payment - INFO - Successfully created payment with ID 5
+2025-06-07 12:43:01,108 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 12:43:11,188 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:43:17,581 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 12:43:21,004 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:44:40,562 - app.routes.payment - INFO - Creating new payment for order 1234
+2025-06-07 12:44:40,570 - app.routes.payment - ERROR - Unexpected error creating payment: 'cvv' is an invalid keyword argument for Payment
+Traceback (most recent call last):
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\app\routes\payment.py", line 17, in create_payment
+    db_payment = Payment(
+  File "<string>", line 4, in __init__
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 2142, in _declarative_constructor
+    raise TypeError(
+TypeError: 'cvv' is an invalid keyword argument for Payment
+2025-06-07 12:46:11,660 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 12:46:20,085 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:46:41,710 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 12:47:03,347 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:47:59,184 - app.routes.payment - INFO - Creating new payment for order 11111
+2025-06-07 12:47:59,498 - app.routes.payment - ERROR - Error creating payment: (pymysql.err.OperationalError) (1054, "Unknown column 'hashed_cvv' in 'field list'")
+[SQL: INSERT INTO payments (order_id, amount, card_number, card_holder_name, expiry_date, hashed_cvv, status, updated_at) VALUES (%(order_id)s, %(amount)s, %(card_number)s, %(card_holder_name)s, %(expiry_date)s, %(hashed_cvv)s, %(status)s, %(updated_at)s)]
+[parameters: {'order_id': 11111, 'amount': 9876.0, 'card_number': '2222333344442222', 'card_holder_name': 'Test 1', 'expiry_date': '11/31', 'hashed_cvv': '$2b$12$nwuT.CTtlPxtALaoR/msSOBV0LUlJPMhmzmuMVe/OlPCnxUHxXxNi', 'status': 'SUCCESSFUL', 'updated_at': None}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\connections.py", line 822, in _read_query_result
+    result.read()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'hashed_cvv' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\app\routes\payment.py", line 31, in create_payment
+    db.commit()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\session.py", line 4312, in flush
+    self._flush(objects)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\session.py", line 4408, in _flush
+    flush_context.execute()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1226, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\sql\elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\connections.py", line 822, in _read_query_result
+    result.read()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'hashed_cvv' in 'field list'")
+[SQL: INSERT INTO payments (order_id, amount, card_number, card_holder_name, expiry_date, hashed_cvv, status, updated_at) VALUES (%(order_id)s, %(amount)s, %(card_number)s, %(card_holder_name)s, %(expiry_date)s, %(hashed_cvv)s, %(status)s, %(updated_at)s)]
+[parameters: {'order_id': 11111, 'amount': 9876.0, 'card_number': '2222333344442222', 'card_holder_name': 'Test 1', 'expiry_date': '11/31', 'hashed_cvv': '$2b$12$nwuT.CTtlPxtALaoR/msSOBV0LUlJPMhmzmuMVe/OlPCnxUHxXxNi', 'status': 'SUCCESSFUL', 'updated_at': None}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-07 12:49:53,511 - app.routes.payment - INFO - Creating new payment for order 11111
+2025-06-07 12:49:53,865 - app.routes.payment - ERROR - Error creating payment: (pymysql.err.DataError) (1406, "Data too long for column 'hashed_cvv' at row 1")
+[SQL: INSERT INTO payments (order_id, amount, card_number, card_holder_name, expiry_date, hashed_cvv, status, updated_at) VALUES (%(order_id)s, %(amount)s, %(card_number)s, %(card_holder_name)s, %(expiry_date)s, %(hashed_cvv)s, %(status)s, %(updated_at)s)]
+[parameters: {'order_id': 11111, 'amount': 9876.0, 'card_number': '2222333344442222', 'card_holder_name': 'Test 1', 'expiry_date': '11/31', 'hashed_cvv': '$2b$12$mHXDgYzOk2HGemWAxKUd4.0r2qUJXdR4A8xWtYG8uCY1DsbvGI7f.', 'status': 'SUCCESSFUL', 'updated_at': None}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+Traceback (most recent call last):
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\connections.py", line 822, in _read_query_result
+    result.read()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.DataError: (1406, "Data too long for column 'hashed_cvv' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\app\routes\payment.py", line 31, in create_payment
+    db.commit()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\session.py", line 4312, in flush
+    self._flush(objects)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\session.py", line 4408, in _flush
+    flush_context.execute()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1226, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\sql\elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\connections.py", line 822, in _read_query_result
+    result.read()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.DataError: (pymysql.err.DataError) (1406, "Data too long for column 'hashed_cvv' at row 1")
+[SQL: INSERT INTO payments (order_id, amount, card_number, card_holder_name, expiry_date, hashed_cvv, status, updated_at) VALUES (%(order_id)s, %(amount)s, %(card_number)s, %(card_holder_name)s, %(expiry_date)s, %(hashed_cvv)s, %(status)s, %(updated_at)s)]
+[parameters: {'order_id': 11111, 'amount': 9876.0, 'card_number': '2222333344442222', 'card_holder_name': 'Test 1', 'expiry_date': '11/31', 'hashed_cvv': '$2b$12$mHXDgYzOk2HGemWAxKUd4.0r2qUJXdR4A8xWtYG8uCY1DsbvGI7f.', 'status': 'SUCCESSFUL', 'updated_at': None}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2025-06-07 12:54:18,290 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 12:54:21,654 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:54:28,619 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 12:54:48,887 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:55:33,098 - app.routes.payment - INFO - Creating new payment for order 11111
+2025-06-07 12:55:33,438 - app.routes.payment - INFO - Successfully created payment with ID 1
+2025-06-07 12:55:33,446 - app.main - ERROR - Unhandled error: 1 validation errors:
+  {'type': 'missing', 'loc': ('response', 'cvv'), 'msg': 'Field required', 'input': <app.models.payment.Payment object at 0x00000240995F39A0>, 'url': 'https://errors.pydantic.dev/2.5/v/missing'}
+Traceback (most recent call last):
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\starlette\middleware\cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\starlette\middleware\cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\fastapi\routing.py", line 292, in app
+    content = await serialize_response(
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\pvenv\lib\site-packages\fastapi\routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation errors:
+  {'type': 'missing', 'loc': ('response', 'cvv'), 'msg': 'Field required', 'input': <app.models.payment.Payment object at 0x00000240995F39A0>, 'url': 'https://errors.pydantic.dev/2.5/v/missing'}
+
+2025-06-07 12:56:20,126 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 12:56:26,440 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:56:49,637 - app.routes.payment - INFO - Creating new payment for order 11111
+2025-06-07 12:56:49,899 - app.routes.payment - INFO - Successfully created payment with ID 1
+2025-06-07 12:59:29,549 - app.routes.payment - INFO - Creating new payment for order 11111
+2025-06-07 12:59:29,801 - app.routes.payment - INFO - Successfully created payment with ID 2
+2025-06-07 12:59:29,912 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 12:59:32,667 - app.main - INFO - Payment Service is starting up...
+2025-06-07 12:59:50,992 - app.routes.payment - INFO - Creating new payment for order 11111
+2025-06-07 12:59:51,271 - app.routes.payment - INFO - Successfully created payment with ID 1
+2025-06-07 13:00:54,597 - app.routes.payment - INFO - Creating new payment for order 11111
+2025-06-07 13:00:54,608 - app.routes.payment - WARNING - Payment already exists for order 11111
+2025-06-07 13:00:54,609 - app.routes.payment - ERROR - Unexpected error creating payment: 
+Traceback (most recent call last):
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\app\routes\payment.py", line 26, in create_payment
+    raise HTTPException(
+fastapi.exceptions.HTTPException
+2025-06-07 13:02:08,809 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 13:02:13,529 - app.main - INFO - Payment Service is starting up...
+2025-06-07 13:02:18,693 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 13:02:27,062 - app.main - INFO - Payment Service is starting up...
+2025-06-07 13:03:04,451 - app.routes.payment - INFO - Creating new payment for order 11111
+2025-06-07 13:03:04,723 - app.routes.payment - INFO - Successfully created payment with ID 1
+2025-06-07 13:03:34,144 - app.routes.payment - INFO - Creating new payment for order 11111
+2025-06-07 13:03:34,151 - app.routes.payment - WARNING - Payment already exists for order 11111
+2025-06-07 13:04:26,743 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 13:04:31,650 - app.main - INFO - Payment Service is starting up...
+2025-06-07 13:04:35,076 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 13:04:43,325 - app.main - INFO - Payment Service is starting up...
+2025-06-07 13:04:50,809 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 13:04:55,024 - app.main - INFO - Payment Service is starting up...
+2025-06-07 13:09:51,889 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 13:09:54,777 - app.main - INFO - Payment Service is starting up...
+2025-06-07 13:11:47,346 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 13:12:10,088 - app.main - INFO - Payment Service is starting up...
+2025-06-07 13:18:00,883 - app.main - INFO - Payment Service is starting up...
+2025-06-07 13:18:37,204 - app.routes.payment - INFO - Fetching payments for order 11111
+2025-06-07 13:18:37,294 - app.routes.payment - INFO - Successfully fetched 0 payments for order 11111
+2025-06-07 13:18:58,326 - app.routes.payment - INFO - Fetching payments for order 1111
+2025-06-07 13:18:58,333 - app.routes.payment - INFO - Successfully fetched 0 payments for order 1111
+2025-06-07 13:19:07,053 - app.routes.payment - INFO - Fetching payment with ID 1
+2025-06-07 13:19:07,078 - app.routes.payment - WARNING - Payment not found with ID 1
+2025-06-07 13:19:07,081 - app.routes.payment - ERROR - Unexpected error fetching payment: 
+Traceback (most recent call last):
+  File "C:\Users\parag.agnihotri\Desktop\Kafka-Capability\payment-microservice\app\routes\payment.py", line 63, in get_payment
+    raise HTTPException(status_code=404, detail="Payment not found")
+fastapi.exceptions.HTTPException
+2025-06-07 13:20:27,742 - app.routes.payment - INFO - Creating new payment for order ID #111
+2025-06-07 13:20:28,122 - app.routes.payment - INFO - Successfully created payment with ID 1
+2025-06-07 13:20:44,600 - app.routes.payment - INFO - Fetching payment with ID 1
+2025-06-07 13:20:44,605 - app.routes.payment - INFO - Successfully fetched payment with ID 1
+2025-06-07 13:20:58,879 - app.routes.payment - INFO - Fetching payments for order 111
+2025-06-07 13:20:58,885 - app.routes.payment - INFO - Successfully fetched 1 payments for order 111
+2025-06-07 13:27:02,113 - app.main - INFO - Payment Service is starting up...
+2025-06-07 13:27:55,952 - app.main - INFO - Payment Service is shutting down...
+2025-06-07 13:28:08,388 - app.main - INFO - Payment Service is starting up...
